@@ -17,7 +17,7 @@ services:
     container_name: archon-server
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.archon-server.rule=Host(`${ARCHON_SERVER_DOMAIN}`)"
+      - "traefik.http.routers.archon-server.rule=Host(`${SERVICE_FQDN_ARCHON_SERVER}`)"
       - "traefik.http.routers.archon-server.entrypoints=websecure"
       - "traefik.http.routers.archon-server.tls.certresolver=letsencrypt"
       - "traefik.http.services.archon-server.loadbalancer.server.port=8181"
@@ -78,7 +78,7 @@ services:
     container_name: archon-mcp
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.archon-mcp.rule=Host(`${ARCHON_MCP_DOMAIN}`)"
+      - "traefik.http.routers.archon-mcp.rule=Host(`${SERVICE_FQDN_ARCHON_MCP}`)"
       - "traefik.http.routers.archon-mcp.entrypoints=websecure"
       - "traefik.http.routers.archon-mcp.tls.certresolver=letsencrypt"
       - "traefik.http.services.archon-mcp.loadbalancer.server.port=8051"
@@ -130,7 +130,7 @@ services:
     container_name: archon-agents
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.archon-agents.rule=Host(`${ARCHON_AGENTS_DOMAIN}`)"
+      - "traefik.http.routers.archon-agents.rule=Host(`${SERVICE_FQDN_ARCHON_AGENTS}`)"
       - "traefik.http.routers.archon-agents.entrypoints=websecure"
       - "traefik.http.routers.archon-agents.tls.certresolver=letsencrypt"
       - "traefik.http.services.archon-agents.loadbalancer.server.port=8052"
@@ -164,7 +164,7 @@ services:
     container_name: archon-ui
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.archon-frontend.rule=Host(`${ARCHON_FRONTEND_DOMAIN}`)"
+      - "traefik.http.routers.archon-frontend.rule=Host(`${SERVICE_FQDN_ARCHON_FRONTEND}`)"
       - "traefik.http.routers.archon-frontend.entrypoints=websecure"
       - "traefik.http.routers.archon-frontend.tls.certresolver=letsencrypt"
       - "traefik.http.services.archon-frontend.loadbalancer.server.port=3737"
